@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   gclone-anime: &default
-    image: anon0511/gclone:latest
+    image: anon0511/gclone-docker:latest
     restart: unless-stopped
     container_name: gclone-anime
     environment:

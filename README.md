@@ -1,6 +1,8 @@
 # gclone-docker
 [dogbutcat gclone](https://github.com/dogbutcat/gclone) in Docker
 
+[Docker Hub!](https://hub.docker.com/r/anon0511/gclone-docker)
+
 This container is specifically aimed at Google Drive users using Service Accounts. Well, that is pretty much the only reason to use gclone over rclone anyway so I suppose you know.
 
 dogbutcat gclone features some additional very useful things, like `--drive-random-pick-sa`, `--drive-rolling-sa` and `--drive-rolling-count=1`. Please refer to his Git on the link above to check what these options do.
@@ -22,7 +24,7 @@ If there is need to actually allow custom filters I might think about it or you 
 version: '3.9'
 services:
   gclone-anime:
-    image: anon0511/gclone:latest
+    image: anon0511/gclone-docker:latest
     restart: unless-stopped
     container_name: gclone-anime
     environment:
