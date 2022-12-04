@@ -14,6 +14,11 @@ The container has a hardcoded filter for `.!qB`. This is a flag you can configur
 If there is need to actually allow custom filters I might think about it or you open a PR.
 
 
+### Pipeline
+
+This container is built automatically with a pipeline on a weekly schedule using alpine:latest and newest version from dogbutcat Release!
+
+
 ## Usage
 
 
