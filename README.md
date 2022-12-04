@@ -28,9 +28,9 @@ services:
     restart: unless-stopped
     container_name: gclone-anime
     environment:
+      - TZ=Europe/Berlin
       - to_path=anime:/
       - from_path=/mnt/google/anime/
-      - TZ=Europe/Berlin
       - intvl=60
       - minage=120
     volumes:
@@ -46,8 +46,6 @@ services:
 
 | Parameter | Function |
 | :----: | --- |
-| `PUID=1000` | for UserID - see below for explanation. |
-| `PGID=1000` | for GroupID - see below for explanation. |
 | `TZ=Europe/Berlin` | Specify a timezone to use EG Europe/London. |
 | `to_path=anime:/` | The cloud drive's name to upload to, the name must match the name in your rclone.conf. |
 | `from_path=/mnt/google/anime/` | Your source directory which you mount from your host system into the container. |
@@ -58,17 +56,4 @@ services:
 | `/home/user/sarotate/all_accounts` | Your directory with all Service Account files, must match the path configured in the rclone.conf. |
 | `/home/gclone` | The directory where gclone writes it's log to, for monitoring and debugging. |
 
-
-## User / Group Identifiers
-
-When using volumes (`-v` flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user `PUID` and group `PGID`.
-
-Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
-
-In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as below:
-
-```bash
-  $ id username
-    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
-```
 
