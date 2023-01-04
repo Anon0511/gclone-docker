@@ -18,8 +18,6 @@ if [ -z "$minage" ]
 then
   MINAGE=$intvl
   echo "setting minage : $intvl"
-else
-  echo "minage: $MINAGE"
 fi
 
 # Check for files older than x
@@ -30,6 +28,8 @@ if find $FROM* -type f -mmin +$MINAGE ! -name '*.!qB' | read
   echo "$(date "+%d.%m.%Y %T") RCLONE UPLOAD STARTED" | tee -a $LOGFILE
   /usr/bin/gclone move "$FROM" "$TO" --filter='- *.!qB' --delete-empty-src-dirs --min-age ${MINAGE}m --fast-list --drive-random-pick-sa --drive-rolling-sa --drive-rolling-count=1 --log-level=INFO --log-file=$LOGFILE
   echo "$(date "+%d.%m.%Y %T") RCLONE UPLOAD FINISHED IN $(($(date +'%s') - $start)) SECONDS" | tee -a $LOGFILE
+else
+  echo "Nothing to upload"
 fi
 
 exit
