@@ -3,6 +3,8 @@
 
 [Docker Hub!](https://hub.docker.com/r/anon0511/gclone-docker)
 
+It performs `gclone move`!
+
 This container is specifically aimed at Google Drive users using Service Accounts. Well, that is pretty much the only reason to use gclone over rclone anyway so I suppose you know.
 
 dogbutcat gclone features some additional very useful things, like `--drive-random-pick-sa`, `--drive-rolling-sa` and `--drive-rolling-count=1`. Please refer to his Git on the link above to check what these options do.
