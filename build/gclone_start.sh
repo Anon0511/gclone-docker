@@ -19,10 +19,10 @@ then
 fi
 
 
-if ! grep -Fxq $from_path /var/gclone/.config/rclone/rclone.conf
+if ! gclone listremotes | grep -Fq $from_path
 then
   if find $from_path -type f -mmin +$MINAGE ! -name '*.!qB' | read
-    then
+  then
     start=$(date +'%s')
     echo "$(date "+%d.%m.%Y %T") RCLONE $UPJOB STARTED" | tee -a $LOGFILE
     /usr/bin/gclone $JOB "$from_path" "$to_path" --filter='- *.!qB' --min-age ${minage}m --log-level=INFO --log-file=$LOGFILE $OPTS
