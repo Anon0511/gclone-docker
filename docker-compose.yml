@@ -10,6 +10,8 @@ services:
       - TZ=Europe/Berlin
       - intvl=60
       - minage=120
+      - JOB=move
+      - OPTS=--delete-empty-src-dirs --fast-list --drive-random-pick-sa --drive-rolling-sa --drive-rolling-count=1
     volumes:
       - /mnt/google/anime:/mnt/google/anime
       - /home/user/.config/rclone:/var/gclone/.config/rclone
@@ -26,6 +28,8 @@ services:
       - TZ=Europe/Berlin
       - intvl=60
       - minage=120
+      - JOB=move
+      - OPTS=--delete-empty-src-dirs --fast-list --drive-random-pick-sa --drive-rolling-sa --drive-rolling-count=1
     volumes:
       - /mnt/google/movies:/mnt/google/movies
       - /home/user/.config/rclone:/var/gclone/.config/rclone
@@ -42,6 +46,8 @@ services:
       - TZ=Europe/Berlin
       - intvl=60
       - minage=120
+      - JOB=move
+      - OPTS=--delete-empty-src-dirs --fast-list --drive-random-pick-sa --drive-rolling-sa --drive-rolling-count=1
     volumes:
       - /mnt/google/tv:/mnt/google/tv
       - /home/user/.config/rclone:/var/gclone/.config/rclone
