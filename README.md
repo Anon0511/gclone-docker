@@ -34,7 +34,7 @@ services:
     container_name: gclone-anime
     environment:
       - TZ=Europe/Berlin
-      - to_path=anime:/
+      - "to_path=anime:"
       - from_path=/mnt/google/anime/
       - intvl=60
       - minage=120

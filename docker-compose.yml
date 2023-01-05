@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     container_name: gclone-anime
     environment:
-      - to_path=anime:/
+      - "to_path=anime:"
       - from_path=/mnt/google/anime/
       - TZ=Europe/Berlin
       - intvl=60
@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     container_name: gclone-movies
     environment:
-      - to_path=movies:/
+      - "to_path=movies:"
       - from_path=/mnt/google/movies/
       - TZ=Europe/Berlin
       - intvl=60
@@ -41,7 +41,7 @@ services:
     restart: unless-stopped
     container_name: gclone-tv
     environment:
-      - to_path=tv:/
+      - "to_path=tv:"
       - from_path=/mnt/google/tv/
       - TZ=Europe/Berlin
       - intvl=60
