@@ -3,7 +3,7 @@
 # Check for still running process
 
 if pidof -o %PPID "gclone_start.sh"; then
-  # echo "killing myself as gclone_start.sh is running "
+  echo "gclone is still running"
   exit 1
 fi
 
