@@ -11,7 +11,7 @@ fi
 
 FROM=$from_path
 TO=$to_path
-LOGFILE="/gclone/$(echo $to_path | cut -d: -f1).log"
+LOGFILE="/gclone/$(echo $to_path | cut -d: -f1)_$JOB.log"
 
 if [ -z "$minage" ]
 then
