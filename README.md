@@ -7,12 +7,6 @@ This container is specifically aimed at Google Drive users using Service Account
 
 dogbutcat gclone features some additional very useful things, like `--drive-random-pick-sa`, `--drive-rolling-sa` and `--drive-rolling-count=1`. Please refer to his Git on the link above to check what these options do.
 
-Although, this container uses exactly these flags since it is the most logically thing to do to spread API hits and file owner's as much as possible. 
-
-The container has a hardcoded filter for `.!qB`. This is a flag you can configure in qBittorrent to be added to unfinished Torrents, so these won't be uploaded. You can either ignore it if you aren't using qBit or you might want to start using it.
-
-If there is need to actually allow custom filters I might think about it or you open a PR.
-
 
 ### Pipeline
 
@@ -39,7 +33,7 @@ services:
       - intvl=60
       - minage=120
       - JOB=move
-      - OPTS=--delete-empty-src-dirs --fast-list --drive-random-pick-sa --drive-rolling-sa --drive-rolling-count=1
+      - OPTS=--delete-empty-src-dirs --fast-list --drive-random-pick-sa --drive-rolling-sa --drive-rolling-count=1 --filter='- *.!qB'
     volumes:
       - /mnt/google/anime:/mnt/google/anime
       - /home/user/.config/rclone:/var/gclone/.config/rclone
